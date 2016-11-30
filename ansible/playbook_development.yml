@@ -3,6 +3,17 @@
   hosts: "webservers"
   become: true
   become_user: root
+# https://www.calebwoods.com/2015/06/27/mixing-ansible-roles-tasks/
+  pre_tasks:
+  - name: Install Remi Repository (Provisional)
+    shell: "{{ item }}"
+    with_items:
+      - wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+      - rpm -Uvh remi-release-6*.rpm
+      - yum install yum-utils -y
+      - yum-config-manager --enable remi-php70
+      - rm remi-release-6*.rpm
+
   roles:
     - role: repositories
 
@@ -11,6 +22,6 @@
 
     - { role: geerlingguy.apache }
     - { role: geerlingguy.firewall }
+    - { role: geerlingguy.mysql }
     - { role: geerlingguy.php }
     - { role: geerlingguy.composer }
-    - { role: geerlingguy.mysql }

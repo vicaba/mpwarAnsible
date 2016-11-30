@@ -22,11 +22,11 @@ fi
 echo "-> Installing Ansibe Galaxy Modules"
 
 roles_list[0]='geerlingguy.ntp,1.3.0'
-roles_list[1]='geerlingguy.apache,1.7.2'
-roles_list[2]='geerlingguy.php,3.4.0'
+roles_list[1]='geerlingguy.apache,1.7.4'
+roles_list[2]='geerlingguy.php,3.4.2'
 roles_list[3]='geerlingguy.firewall,1.0.9'
-roles_list[4]='geerlingguy.composer,1.4.1'
-roles_list[5]='geerlingguy.mysql,2.3.1'
+roles_list[4]='geerlingguy.composer,1.5.0'
+roles_list[5]='geerlingguy.mysql,2.4.2'
 roles_list[6]='AerisCloud.repos,v1.1.2'
 
 for role_and_version in "${roles_list[@]}"
